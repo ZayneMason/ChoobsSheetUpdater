@@ -22,10 +22,10 @@ def json_to_csv(content)
   json = JSON.parse(File.open("cache_response.json").read)
   headings = SortedSet.new
   json.each do |hash|
-      headings << "username"
-      headings << "start"
-      headings << "end"
       headings << "gained"
+      headings << "end"
+      headings << "start"
+      headings << "username"
   end
 
   csv_string = CSV.open("cache_response.txt", "wb") do |csv|
