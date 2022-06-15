@@ -5,7 +5,6 @@ require "uri"
 require "net/http"
 require "json"
 require "csv"
-require "sorted_set"
 
 def url_builder(group_id, metric, period, limit, offset)
   new_uri = 'https://api.wiseoldman.net/groups/'
@@ -20,13 +19,11 @@ end
 def json_to_csv(content)
   File.write("cache_response.json", content)
   json = JSON.parse(File.open("cache_response.json").read)
-  headings = SortedSet.new
-  json.each do |hash|
-      headings << "gained"
-      headings << "end"
-      headings << "start"
-      headings << "username"
-  end
+  headings = Array.new
+  headings << "username"
+  headings << "start"
+  headings << "end"
+  headings << "gained"
 
   csv_string = CSV.open("cache_response.txt", "wb") do |csv|
     csv << headings
