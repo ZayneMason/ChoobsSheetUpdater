@@ -1,0 +1,40 @@
+<h1>Options:</h1>
+<form method="post" action="/get_data">
+  <fieldset>
+    <legend>Options:</legend>
+    <label for="group_id">Group ID:</label><br>
+    <input type="text" id="group_id" name="group_id" value="2303"><br><br>
+
+    <label for="limit">Limit:</label><br>
+    <input type="text" id="limit" name="limit" value="500"><br><br>
+
+    <label for="metric">Metric:</label><br>
+    <select name="metrics" id="metric">
+      <optgroup label="metrics">
+        <% @metrics_arr.each do |metric| %>
+          <option value="<%= "#{metric}" %>"><%=metric%></option>
+        <% end %>
+      </optgroup>
+    </select><br><br>
+    
+    <label for="period">Period:</label><br>
+    <select name="periods" id="period">
+      <optgroup label="Period">
+        <option value="5min">5min</option>
+        <option value="Day">Day</option>
+        <option value="Week">Week</option>
+        <option value="Month">Month</option>
+        <option value="Year">Year</option>
+      </optgroup>
+    </select><br><br>
+    
+    <label for="offset">Offset:</label><br>
+    <input type="text" id="offset" name="offset" value="0"><br><br>
+  </fieldset><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<% if session[:link] %>
+  <a href="<%="#{session[:link]}"%>">Api return</a>
+<% end %>
