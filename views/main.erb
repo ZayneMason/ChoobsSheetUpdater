@@ -10,7 +10,7 @@
 
     <label for="metric">Metric:</label><br>
     <select name="metrics" id="metric">
-      <optgroup label="metrics">
+      <optgroup label="Metric">
         <% @metrics_arr.each do |metric| %>
           <option value="<%= "#{metric}" %>"><%=metric%></option>
         <% end %>

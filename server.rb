@@ -25,7 +25,7 @@ def json_to_csv(content)
   headings << "end"
   headings << "gained"
 
-  csv_string = CSV.open("cache_response.txt", "wb") do |csv|
+  CSV.open("cache_response.txt", "wb") do |csv|
     csv << headings
     json.each do |hash|
       row = {}
