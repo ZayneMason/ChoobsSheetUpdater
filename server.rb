@@ -21,8 +21,6 @@ def json_to_csv(content)
   json = JSON.parse(File.open("cache_response.json").read)
   headings = Array.new
   headings << "username"
-  headings << "start"
-  headings << "end"
   headings << "gained"
 
   CSV.open("cache_response.txt", "wb") do |csv|
@@ -35,8 +33,6 @@ def json_to_csv(content)
       end
 
       row["username"] = hash["player"]["username"]
-      row["start"] = hash["start"]
-      row["end"] = hash["end"]
       row["gained"] = hash["gained"]
 
       csv << row.values
