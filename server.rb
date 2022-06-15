@@ -70,6 +70,6 @@ post '/get_data' do
 end
 
 get '/download' do
-  headers['Content-Type'] = 'text/plain'
+  send_file "new_csv.txt", :type => 'Application/octet-stream', :filename => "leaderboard_csv.txt"
   File.open('new_csv.txt')
 end
