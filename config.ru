@@ -1,2 +1,2 @@
-require "./book_viewer"
+require "./server"
 run Sinatra::Application
